@@ -16,11 +16,10 @@ class BBC_Login
   WRONG_CHAR_EMAIL = 'rayan.zayem0k@=html.com'
 
 
-
   def successful_login
     page.has_content?('Welcome to the BBC')
   end
-  
+
   # FILL IN EMAIL/USERNAME FUNCTIONS
   def fill_email
     fill_in USERNAME, with: DUMMY_EMAIL
@@ -58,7 +57,7 @@ class BBC_Login
     sleep 1
   end
 
-
+  # LOGIN FUNCTIONS
   # CLICK FUNCTIONS
   def click_submit
     click_button 'Sign in'
@@ -81,7 +80,7 @@ class BBC_Login
   end
 
   def wrong_password_error
-    page.has_content?('match')
+    page.has_content?('Uh oh, that password doesn’t match that account. Please try again.')
   end
 
   def something_missing_error
@@ -93,7 +92,7 @@ class BBC_Login
   end
 
   def wrong_user_error
-    page.has_content?('include')
+    page.has_content?('Usernames can only include...')
   end
 
   def wrong_char_error
